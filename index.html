@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Visual CSS Grid Generator</h1>
+            <p>Click the buttons to build your grid, then get the code.</p>
+            <div class="theme-switcher">
+                <input type="checkbox" id="theme-toggle" title="Toggle dark mode">
+                <label for="theme-toggle">Dark Mode</label>
+            </div>
+        </header>
+
+        <main>
+            <div class="advanced-controls">
+                <div class="control-group">
+                    <h3>Rows</h3>
+                    <div id="row-inputs">
+                        <!-- Row inputs will be generated here -->
+                    </div>
+                    <button id="add-row">+ Add Row</button>
+                </div>
+                <div class="control-group">
+                    <h3>Columns</h3>
+                    <div id="col-inputs">
+                        <!-- Column inputs will be generated here -->
+                    </div>
+                    <button id="add-col">+ Add Column</button>
+                </div>
+            </div>
+            <div class="template-controls">
+                <div class="control-group">
+                    <h3>Start with a Template</h3>
+                    <select id="template-select" class="track-input">
+                        <option value="">-- Select a Template --</option>
+                        <option value="holy-grail">Holy Grail Layout</option>
+                        <option value="sidebar-left">Sidebar on Left</option>
+                        <option value="simple-gallery">Simple Gallery (3x3)</option>
+                        <option value="featured-gallery">Featured Image Gallery</option>
+                        <option value="dashboard">Dashboard</option>
+                        <option value="product-listing">Product Listing (4 Col)</option>
+                        <option value="blog-post">Blog Post</option>
+                        <option value="landing-hero">Landing Page Hero</option>
+                        <option value="split-screen">Split Screen</option>
+                        <option value="header-content-footer">Header, Content, Footer</option>
+                        <option value="asymmetric-1">Asymmetric Layout</option>
+                        <option value="featured-card-grid">Featured Card Grid</option>
+                        <option value="dual-sidebar">Dual Sidebars</option>
+                        <option value="video-playlist">Video Playlist</option>
+                        <option value="pricing-table">Pricing Table (3 Col)</option>
+                        <option value="testimonials">Testimonials (2x2)</option>
+                        <option value="team-page">Team Page</option>
+                        <option value="contact-page">Contact Page</option>
+                        <option value="magazine-1">Magazine Layout</option>
+                        <option value="image-montage">Image Montage</option>
+                        <option value="docs-layout">Documentation Page</option>
+                        <option value="repeating-modules">Repeating Modules</option>
+                        <option value="ram-layout">RAM (Rijksmuseum) Layout</option>
+                        <option value="overlapping-cards">Overlapping Cards</option>
+                        <option value="masonry-approx">Masonry Approximation</option>
+                        <option value="full-width-centered">Full-width Centered</option>
+                        <option value="profile-page">Profile Page</option>
+                        <option value="ecommerce-product">E-commerce Product Page</option>
+                        <option value="checkerboard-features">Checkerboard Features</option>
+                        <option value="multi-col-footer">Multi-column Footer</option>
+                        <option value="hero-side-image">Hero with Side Image</option>
+                        <option value="timeline">Timeline</option>
+                        <option value="kanban-board">Kanban Board</option>
+                        <option value="calendar-view">Calendar View</option>
+                        <option value="newspaper-layout">Newspaper Layout</option>
+                        <option value="alternating-sides">Alternating Sides</option>
+                        <option value="stats-dashboard-2">Stats Dashboard 2</option>
+                        <option value="portfolio-asymmetric">Asymmetric Portfolio</option>
+                        <option value="wide-header-3-col">Wide Header, 3 Columns</option>
+                        <option value="image-and-text-block">Image and Text Block</option>
+                        <option value="triple-panel-vertical">Triple Vertical Panels</option>
+                        <option value="quadrant-layout">Quadrant Layout</option>
+                    </select>
+                </div>
+            </div>
+            <div class="main-actions">
+                <button id="save-layout-btn" class="action-btn">Save Layout</button>
+                <button id="load-layout-btn">Load Layout</button>
+                <button id="undo-btn" disabled>Undo</button>
+                <button id="redo-btn" disabled>Redo</button>
+                <button id="merge-btn" class="action-btn" disabled>Merge Selected</button>
+                <button id="split-btn" class="action-btn" disabled>Split Item</button>
+                <button id="get-code" class="action-btn">Get Code</button>
+                <button id="reset-grid">Reset</button>
+            </div>
+
+            <div id="properties-panel" class="hidden">
+                <h3>Item Properties</h3>
+                <div class="track-input-group">
+                    <label for="item-name-input">Class Name</label>
+                    <input type="text" id="item-name-input" class="track-input" placeholder="e.g., header, sidebar">
+                </div>
+            </div>
+
+            <div class="responsive-controls">
+                <button data-width="375px" title="Mobile View (375px)">Mobile</button>
+                <button data-width="768px" title="Tablet View (768px)">Tablet</button>
+                <button data-width="100%" title="Desktop View" class="active">Desktop</button>
+            </div>
+
+            <div id="grid-preview-wrapper">
+                <div id="grid-preview">
+                    <!-- Grid items will be generated here by JavaScript -->
+                </div>
+            </div>
+        </main>
+
+        <section id="code-output-section" class="hidden">
+            <h2>Your Code</h2>
+            <div class="code-blocks">
+                <div class="code-block">
+                    <h3>HTML</h3>
+                    <button class="copy-btn" data-target="html-code">Copy</button>
+                    <pre><code id="html-code"></code></pre>
+                </div>
+                <div class="code-block">
+                    <h3>CSS</h3>
+                    <button class="copy-btn" data-target="css-code">Copy</button>
+                    <pre><code id="css-code"></code></pre>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

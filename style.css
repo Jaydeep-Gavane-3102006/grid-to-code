@@ -1,0 +1,383 @@
+/* General Body & Typography */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f4f7f9;
+    color: #333;
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 30px;
+    transition: background-color 0.3s;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+header {
+    position: relative;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+    transition: border-bottom-color 0.3s;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: #1a202c;
+    margin: 0;
+}
+
+.theme-switcher {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#theme-toggle {
+    cursor: pointer;
+}
+
+.responsive-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.responsive-controls button.active {
+    background-color: #3b82f6;
+    color: #fff;
+    border-color: #3b82f6;
+}
+
+.responsive-controls button.active:hover {
+    background-color: #2563eb;
+}
+
+h2 {
+    color: #1a202c;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+h3 {
+    color: #4a5568;
+    margin-top: 0;
+}
+
+/* Advanced Controls for Rows/Columns */
+.advanced-controls {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+    .advanced-controls {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.control-group h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.template-controls {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #f9fafb;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+#row-inputs, #col-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.track-input-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.track-input {
+    flex-grow: 1;
+    padding: 8px 12px;
+    font-size: 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    background-color: #fff;
+    color: #374151;
+    transition: border-color 0.2s;
+}
+
+.track-input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+}
+
+.remove-track-btn {
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    background-color: #fee2e2;
+    color: #ef4444;
+    border: 1px solid #fecaca;
+    border-radius: 50%;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.main-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 1px solid #d1d5db;
+    background-color: #fff;
+    color: #374151;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: #f9fafb;
+    border-color: #9ca3af;
+}
+
+button.action-btn {
+    background-color: #3b82f6;
+    color: #fff;
+    border-color: #3b82f6;
+}
+
+button.action-btn:hover {
+    background-color: #2563eb;
+}
+
+#grid-preview-wrapper {
+    min-height: 200px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 30px;
+    transition: width 0.4s ease-in-out, background-color 0.3s, border-color 0.3s;
+    margin-left: auto; /* Center it when width is not 100% */
+    margin-right: auto;
+    user-select: none; /* Prevent text selection during drag */
+    background-color: #e5e7eb; /* This color will be the grid lines */
+}
+
+#grid-preview {
+    display: grid;
+    gap: 1px; /* Creates thin grid lines from the wrapper's background */
+    height: 100%;
+}
+
+.grid-item-preview {
+    background-color: #a5b4fc;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #312e81;
+    font-weight: bold;
+    min-height: 50px;
+}
+
+.grid-item-preview.selected {
+    background-color: #6366f1;
+    color: #e0e7ff;
+    box-shadow: 0 0 0 3px #4f46e5 inset; /* Use inset shadow for selection */
+}
+
+.grid-item-preview.grouped {
+    /* Style for items that are part of a non-rectangular group */
+    border-style: dashed;
+    border-color: #4338ca;
+}
+
+.resizer {
+    position: absolute;
+    z-index: 10;
+}
+
+.resizer-col {
+    cursor: col-resize;
+    height: 100%;
+    width: 10px;
+    margin-left: -5px; /* Center the handle */
+}
+
+.resizer-row {
+    cursor: row-resize;
+    width: 100%;
+    height: 10px;
+    margin-top: -5px; /* Center the handle */
+}
+
+body.resizing, body.resizing * {
+    cursor: col-resize !important;
+}
+body.resizing-row, body.resizing-row * {
+    cursor: row-resize !important;
+}
+
+#properties-panel {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #f9fafb;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+#properties-panel.hidden {
+    display: none;
+}
+/* Code Output Section */
+#code-output-section.hidden {
+    display: none;
+}
+
+.code-blocks {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+@media (min-width: 768px) {
+    .code-blocks {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.code-block {
+    position: relative;
+    background-color: #2d3748;
+    color: #e2e8f0;
+    padding: 20px;
+    border-radius: 8px;
+    overflow: auto;
+}
+
+.copy-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #4a5568;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+}
+
+/* --- Dark Mode --- */
+body.dark-mode {
+    background-color: #1a202c;
+    color: #e2e8f0;
+}
+
+body.dark-mode .container {
+    background-color: #2d3748;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode header {
+    border-bottom-color: #4a5568;
+}
+
+body.dark-mode h1,
+body.dark-mode h2 {
+    color: #edf2f7;
+}
+
+body.dark-mode h3 {
+    color: #a0aec0;
+}
+
+body.dark-mode button {
+    background-color: #4a5568;
+    color: #e2e8f0;
+    border-color: #718096;
+}
+
+body.dark-mode button:hover {
+    background-color: #718096;
+    border-color: #a0aec0;
+}
+
+body.dark-mode button.action-btn,
+body.dark-mode .responsive-controls button.active {
+    background-color: #4299e1;
+    border-color: #4299e1;
+}
+
+body.dark-mode button.action-btn:hover,
+body.dark-mode .responsive-controls button.active:hover {
+    background-color: #63b3ed;
+}
+
+body.dark-mode .track-input {
+    background-color: #2d3748;
+    color: #e2e8f0;
+    border-color: #4a5568;
+}
+
+body.dark-mode .track-input:focus {
+    border-color: #4299e1;
+    box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.4);
+}
+
+body.dark-mode #grid-preview-wrapper {
+    background-color: #4a5568; /* Darker grid lines */
+    border-color: #718096;
+}
+
+body.dark-mode .grid-item-preview {
+    background-color: #2b6cb0;
+    color: #bee3f8;
+}
+
+body.dark-mode .grid-item-preview.selected {
+    background-color: #63b3ed;
+    color: #1a202c;
+    box-shadow: 0 0 0 3px #90cdf4 inset;
+}
+
+body.dark-mode #properties-panel {
+    background-color: #1a202c;
+    border-color: #4a5568;
+}
+
+body.dark-mode .template-controls {
+    background-color: #1a202c;
+    border-color: #4a5568;
+}
+
+body.dark-mode .code-block {
+    background-color: #1a202c;
+}
